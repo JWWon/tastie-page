@@ -1,5 +1,7 @@
 import { CreatePagesArgs } from 'gatsby';
+import path from 'path';
 
 export async function createPages({ actions }: CreatePagesArgs) {
-	console.log('I will create a page!');
+	const { createPage } = actions;
+	createPage({ path: '/privacy', context: '', component: path.resolve(__dirname, '../pages/privacy.tsx') });
 }
