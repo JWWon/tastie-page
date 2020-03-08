@@ -14,11 +14,6 @@ export const ContentWrapper = styled.div`
 	align-items: center;
 `;
 
-export const Logo = styled.img.attrs({ alt: 'Tastie Logo' })`
-	height: 100%;
-	object-fit: contain;
-`;
-
 export const Divider = styled.div`
 	margin: 0 0.8rem;
 	width: 1px;
