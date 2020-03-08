@@ -31,8 +31,6 @@ interface Props {
 }
 
 const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
-	if (meta === undefined) return null;
-
 	const { site } = useStaticQuery<Query>(
 		graphql`
 			query {
@@ -49,7 +47,7 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
 
 	const metaDescription = description || site.siteMetadata.description;
 
-	return (
+	return meta ? (
 		<Helmet
 			htmlAttributes={{ lang }}
 			title={title}
@@ -89,7 +87,7 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
 				},
 			].concat(meta)}
 		/>
-	);
+	) : null;
 };
 
 SEO.defaultProps = {

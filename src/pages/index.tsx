@@ -1,7 +1,7 @@
 import React from 'react';
 
-import BaseView from '../components/templates/BaseView';
-import SEO from '../components/seo';
+import BaseView from '@components/templates/BaseView';
+import SEO from '@components/SEO';
 
 const IndexPage: React.FC = () => (
 	<BaseView>

@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = {
 	siteMetadata: {
 		title: `Tastie`,
@@ -20,13 +22,25 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `gatsby-starter-default`,
-				short_name: `starter`,
+				name: `Tastie 개인정보처리방침`,
+				short_name: `Tastie`,
 				start_url: `/`,
-				background_color: `#663399`,
-				theme_color: `#663399`,
+				background_color: `#ffffff`,
+				theme_color: `#ffffff`,
 				display: `minimal-ui`,
-				icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+				icon: `src/assets/images/tastie-logo-with-background.png`, // This path is relative to the root of the site.
+			},
+		},
+		{
+			resolve: `gatsby-plugin-alias-imports`,
+			options: {
+				alias: {
+					'@assets': path.resolve(__dirname, 'src/assets'),
+					'@components': path.resolve(__dirname, 'src/components'),
+					'@pages': path.resolve(__dirname, 'src/pages'),
+					'@utils': path.resolve(__dirname, 'src/utils'),
+				},
+				extensions: ['js', 'jsx', 'ts', 'tsx', 'png', 'jpg', 'jpeg'],
 			},
 		},
 		// this (optional) plugin enables Progressive Web App + Offline functionality

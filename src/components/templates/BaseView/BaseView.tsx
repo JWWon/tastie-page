@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from '../../molcules/Header';
+import Header from '@components/molcules/Header';
 import './BaseView.css';
 import * as s from './BaseView.style';
 

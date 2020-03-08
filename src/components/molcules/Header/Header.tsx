@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logo from '../../../assets/images/tastie-logo.png';
+import logo from '@assets/images/tastie-logo.png';
 import * as s from './Header.style';
 
 const Header: React.FC = () => (
