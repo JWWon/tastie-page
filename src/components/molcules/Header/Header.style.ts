@@ -8,7 +8,7 @@ export const Container = styled.header`
 export const ContentWrapper = styled.div`
 	max-width: 960px;
 	margin: 0 auto;
-	height: 4.8rem;
+	height: 2.8rem;
 	padding: 1.2rem 1.6rem;
 	display: flex;
 	align-items: center;
