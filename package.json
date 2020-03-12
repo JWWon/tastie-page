@@ -5,6 +5,7 @@
   "version": "0.2.0",
   "author": "Jiwoon Won",
   "dependencies": {
+    "axios": "^0.19.2",
     "babel-plugin-styled-components": "^1.10.7",
     "formik": "^2.1.4",
     "gatsby": "^2.19.7",
@@ -18,6 +19,7 @@
     "gatsby-plugin-typescript": "^2.2.0",
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-sharp": "^2.3.13",
+    "query-string": "^6.11.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
