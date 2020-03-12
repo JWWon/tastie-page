@@ -1,12 +1,24 @@
 import React from 'react';
 import { useFormik, FormikProps } from 'formik';
 import * as yup from 'yup';
+import { Redirect } from '@reach/router';
+import queryString from 'query-string';
 
 import BaseView from '@components/templates/BaseView';
 import { passwordValidator } from '@utils/validators';
+import * as api from '@services/auth';
 import * as s from '@styles/reset-password';
 
-const ResetPassword: React.FC = () => {
+interface Props {
+	location: Location;
+}
+
+interface Query {
+	code?: string;
+}
+
+const ResetPassword: React.FC<Props> = ({ location }) => {
+	const query: Query = queryString.parse(location.search);
 	const formik: FormikProps<{ password: string; confirmPwd: string }> = useFormik({
 		initialValues: {
 			password: '',
@@ -23,12 +35,20 @@ const ResetPassword: React.FC = () => {
 				.required('비밀번호를 다시 한 번 입력해주세요.'),
 		}),
 		validateOnChange: false,
-		onSubmit: () => {
-			alert('비밀번호가 변경되었습니다.');
-		},
+		onSubmit: handleSubmit,
 	});
 
-	return (
+	async function handleSubmit() {
+		try {
+			if (!query.code) throw new Error('Required parameter not exist');
+			await api.resetPassword({ code: query.code, password: formik.values.password });
+			alert('비밀번호가 변경되었습니다.');
+		} catch (e) {
+			console.error(e);
+		}
+	}
+
+	return query.code ? (
 		<BaseView title="비밀번호 변경하기">
 			<s.Container>
 				<form onSubmit={formik.handleSubmit}>
@@ -58,6 +78,8 @@ const ResetPassword: React.FC = () => {
 				</form>
 			</s.Container>
 		</BaseView>
+	) : (
+		<Redirect noThrow={true} to="/404" />
 	);
 };
 
