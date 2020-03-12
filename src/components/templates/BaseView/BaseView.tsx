@@ -8,16 +8,19 @@ import * as s from './BaseView.style';
 
 interface Props {
 	title: string;
+	header?: string;
 	lastUpdate?: string;
 }
 
-const BaseView: React.FC<Props> = ({ title, lastUpdate, children }) => (
+const BaseView: React.FC<Props> = ({ title, header, lastUpdate, children }) => (
 	<>
 		<SEO title={title} />
-		<Header />
+		<Header title={header} />
 		<s.ContentWrapper>
-			<h1>{title}</h1>
-			{lastUpdate && <LastUpdate>{lastUpdate}</LastUpdate>}
+			<s.TitleWrapper>
+				<h1>{title}</h1>
+				{lastUpdate && <LastUpdate>{lastUpdate}</LastUpdate>}
+			</s.TitleWrapper>
 			{children}
 		</s.ContentWrapper>
 	</>
